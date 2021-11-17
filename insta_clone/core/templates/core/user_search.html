@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "core/base.html" %}
+{%load static%}
+{% block body_block %}
+    {% for x in instagrammer %}
+  <div class="s">
+      {%if x.profile_pic%}<img class='searchdivimage' src="{{x.profile_pic.url}}" alt="">{%else%}<img class='searchdivimage' src="{% static 'default.png' %}" alt="">{% endif %}
+      <h3>{{x.username}}</h3>
+      <a class="gtpbutton" href="{% url 'user_profile_page' username=x.username%}">Go To Profile</a>
+
+  </div>
+      {% endfor %}
+{% endblock %}

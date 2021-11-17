@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Noto+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/password.css' %}">
+</head>
+
+<body>
+  <ul class='container'>
+    <li class='item1'><a href="{% url 'home_feed_page' %}">Instagram</a></li>
+    <li class='item2'><span class="fas fa-search"></span><input class='item21' type="search" name="" value="" placeholder='search'></li>
+    <div class="item3">
+      <li class='item31'><a class='fas fa-home' href="{%url 'home_feed_page'%}"></a></li>
+      <li class='item32'><a class='fas fa-envelope' href="#"></a></li>
+      <li class="item33"><a class="far fa-plus-square" href="#"></a></li>
+      <li class="item34"><a class="far fa-heart" href="#"></a></li>
+      <li class="item35"><a id='me'>{%if user.profile_pic%}<img class='i1copy' src="{{request.user.profile_pic.url}}" alt=""></a>{%else%}<img class='i1copy' src="{% static 'default.png' %}" alt="">{%endif%}</li>
+    </div>
+  </ul>
+  <div class="drop">
+    <a class="edit far fa-user-circle" href="{% url 'user_profile_page' username=request.user.username %}"><span class="in_between">Profile</span></a>
+    <a class="edit fas fa-cog" href="#"><span class="in_between">Change Password</span></a>
+    <a class="edit  far fa-save" href="#"><span class="in_between">Saved Post</span></a>
+    <a class="edit in_between" href="{% url 'signout_page' %}">Logout</a>
+  </div>
+  <div id='bod'>
+  </div>
+  {% block body_block %}
+  {% endblock %}
+  <script src="{% static 'javascript/navdrop.js'%}" charset="utf-8"></script>
+
+</body>
+
+</html>

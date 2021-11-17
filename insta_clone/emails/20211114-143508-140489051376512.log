@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: abhishek.genisis@gmail.com
+Date: Sun, 14 Nov 2021 14:35:08 -0000
+Message-ID: <163690050803.46394.3372982898012793407@1.0.0.127.in-addr.arpa>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/password/reset/confirm/aw3xuk-4eaa620f546b89898506eda69b4a3ce5/MQ/
+
+Your username, in case you’ve forgotten: abhishek.genisis@gmail.com
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+  </head>
+  <body>
+    <!-- container -->
+    <div class="wrapper">
+      <!-- item1 -->
+        <div class="item1"></div>
+        <!-- item2 -->
+        <div class="item2">
+          <!-- item21 -->
+
+          <div class="item21">
+            <h1>Instagram</h1>
+            <form method="post">
+              {% if messages %}
+                {% for message in messages %}
+                  <p style=";color:red;margin:10px 70px; padding:10px 10px; ">{{message}}</p>
+                {% endfor %}
+              {% endif %}
+              {% csrf_token %}
+              <input class='input' type="text" name="email_username" value=""placeholder="email or username">
+              <input class='input' type="password" name="password" value="" placeholder="password">
+              <input id='subs' type="submit" name="" value="Login">
+              <p style="color:rgb(210, 214, 211);">_________OR_________</p>
+              <a class='fb' href="#"><span class="fab fa-facebook"></span>Log in with Facebook</a><br><br>
+              <a class='forgot' href="{% url 'password_reset' %}">Forgot your password?</a>
+            </form>
+          </div>
+          <!-- item22 -->
+          <div class="item22">
+            Dont'have an account?
+            <a class="register" href="{% url 'signup_page' %}">Sign up</a>
+          </div>
+          <!-- item23 -->
+          <div class="item23">
+            Get the app<br><br>
+            <a target="_blank" href="https://www.apple.com/in/app-store/"><img width="150px" src="{% static 'APPLE.png'%}" alt="applestore"></a>
+            <a target="_blank" href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjAsqv9sOXzAhUUnUsFHct9A1gYABAAGgJzZg&ohost=www.google.com&cid=CAESQOD21kKmfWQ0gZhXQ2P-fKxq-rq8yi0i0XREHZ_UONERLmi5RkybpSsh3FTCIsZNJKwJAlHzHgxKGAWey4a_CXo&sig=AOD64_06TyIQMEL9tj_SNY_0U2e_0ndqpA&q&adurl&ved=2ahUKEwioy6L9sOXzAhXixDgGHYnmDhsQ0Qx6BAgCEAE"><img width="150px" src="{% static 'google.png' %}" alt="googlestore"></a>
+          </div>
+
+        </div>
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(245, 245, 245);
+}
+.PostDetailDiv{
+  display: flex;
+  margin: 30px auto;
+  width: 75vw;
+  height: 90vh;
+  background: white;
+  border: 1px solid rgb(190,190,190);
+}
+
+.detail1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 650px;
+  height: 90vh;
+  border-right: 1px solid grey;
+}
+.detailpicture{
+  width: 650px;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.detail2{
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsmalldp{
+  object-fit: cover;
+  width:33px;
+  height: 33px;
+  border-radius: 50%;
+  margin: 15px;
+  margin-right: 0px;
+}
+.titletitle{
+    color: black;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.titlecaption{
+
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.detailtitle{
+  display: flex;
+  border-bottom: 1px solid grey;
+  width: 430px;
+}
+.detaillikes{
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  border-bottom: 1px solid grey;
+}
+.detailcomments{
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  height:430px;
+  border-bottom: 1px solid grey;
+  overflow:scroll;
+}
+.fa-heart,.fa-trash-alt,.fa-comment{
+  margin-right: 13px;
+  font-size: 20px;
+  margin-top: 13px;
+}
+.fa-trash-alt{
+  margin-left:20px;
+}
+.fa-comment{
+  color: black;
+  text-decoration: none;
+}
+.fa-heart{
+  margin-left: 13px;
+  text-decoration: none;
+}
+.detailaddcomments{
+  display: flex;
+  width: 430px;
+}
+.fa-smile{
+  margin: 10px;
+  font-size: 20px;
+}
+.add_comm{
+  width: 385px;
+  height: 90%;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+/* deletecss */
+.deletemodal{
+  position: fixed;
+  top:300px;
+  left:530px;
+  display: none;
+  text-align: center;
+  width:400px;
+  height:110px;
+  border:1px solid rgb(190,190,190);
+  background: white;
+  border-radius: 5px;
+  z-index: 2;
+}
+.delbutton, .canbutton{
+  width: 100%;
+  height: 30px;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+#del_title{
+  font-family: 'Roboto', sans-serif;
+}
+#bod3{
+  position: fixed;
+  top:0;
+  left:0;
+  transform: scale(0);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+
+}
+
+.likecount{
+  position: relative;
+  top: 20px;
+  right:35px;
+}
+.whateva{
+  position:relative;
+  bottom: 40px;
+  left:40px;
+}
+.commenter_title{
+  margin-left: 10px;
+  font-weight: bolder;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  text-decoration: none;
+}
+.commenter_text{
+  font-weight:lighter;
+  font-size: 15px;
+  margin-left: 10px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 25px;
+
+}
+.commentsmoldp{
+  object-fit: cover;
+  width:33px;
+  height: 33px;
+  border-radius: 50%;
+  margin: 10px;
+  margin-right: 0px;
+}
+.commentcount{
+  position: relative;
+  top: 37px;
+  right:26px;
+}
+.commenttime{
+  font-size: 13px;
+  color:rgb(150,150,150);
+}
+.time{
+  position: relative;
+  top:65px;
+  right:100px;
+}

@@ -1,0 +1,61 @@
+body{
+  margin:0;
+  padding: 0;
+  background-color: rgb(237, 237, 237)
+}
+.container{
+  margin: 0;
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid rgb(230,230,230);
+  flex-wrap:wrap-reverse;
+}
+.item1{
+  font-size: 35px;
+  font-family: 'Grand Hotel', cursive;
+}
+.item21{
+  width:200px;
+  height:28px;
+  text-align:center;
+  background-color: rgb(237, 237, 237);
+  border: 1px solid rgb(230,230,230);
+  border-radius:5px;
+}
+.item3{
+display: flex;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.item31{margin-right: 35px;}
+.item32{margin-right: 35px;}
+.item33{margin-right: 35px;}
+.item34{margin-right: 35px;}
+.item35{margin-right: 35px;}
+
+.fa-envelope{
+  font-size: 25px;
+}
+.fa-plus-square{
+  font-size: 25px;
+}
+.fa-heart{
+  font-size: 25px;
+}
+.fa-user-circle{
+  font-size: 25px;
+}
+.fa-search{
+  color: rgb(210,210,210);
+  position: relative;
+  left:50px;
+  top:1px;
+}
+.fa-home{
+    font-size: 25px;
+}

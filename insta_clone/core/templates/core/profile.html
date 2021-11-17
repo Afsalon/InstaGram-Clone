@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% extends 'core/base.html'%}
+{% block body_block %}
+{% load static %}
+<div class="container2">
+  <!-- item1 -->
+  {% if user.profile_pic %}
+  <img class='i1' src="{{user.profile_pic.url}}" alt="">
+  {% else %}
+  <img class='i1' src="{% static 'default.png' %}" alt="">
+  {% endif %}
+  <!-- item2 -->
+  <div class="i2">
+    <!-- line1 -->
+    <div class="i21">
+      <p class='username'>{{user.username}}</p>
+      {% if user.username == request.user.username %}
+      <p class="spanclass"><a href="{% url 'profile_edit_page' username=request.user.username pk=request.user.pk %}">Edit Profile</a></p><span class='fas fa-cog'></span>
+      {% elif not is_follow %}
+      <form action="{% url 'follow_page'%}" method="post">
+        {% csrf_token %}
+        <input type="number" name="userpk" hidden value="{{user.pk}}">
+        <button class="followbutton" type="submit" name="button">Follow</button>
+      </form>
+      {% elif is_follow %}
+      <form action="{% url 'unfollow_page'%}" method="post">
+        {% csrf_token %}
+        <input type="number" name="userppk" hidden value="{{user.pk}}">
+        <button style="background:green;" class="followbutton" type="submit" name="button">Unfollow</button>
+      </form>
+      {% endif %}
+    </div>
+    <!-- line2 -->
+    <div class="i22">
+      <p class='posts'><strong>{{user.p.count}}</strong> Posts</p>
+      <p id='f' class='followers'><a href="#"><strong>{{user.followed.count}}</strong> Followers</a></p>
+      <p id='fing' class='following'><a href="#"><strong >{{user.follow.count}}</strong> Following</a></p>
+    </div>
+    <!-- line3 -->
+    <div class="i23">
+      <h3 style="margin-bottom:0;">{{user.full_name}}</h3>
+    </div>
+    <div class="i24">
+      {% if user.website == None %}
+      <p></p>
+      {% else %}
+      <p width=500px;><a href="{{user.website}}">{{user.website}}</a></p>
+      {% endif %}
+      {% if user.bio == None %}
+      <p></p>
+      {% else %}
+      <p>{{user.bio}}</p>
+      {%endif%}
+    </div>
+  </div>
+</div><br>
+<!-- followmodal -->
+<div id="bod4"></div>
+<div id="followerlistdiv">
+  <!-- title -->
+    <div class="followerlisttitle">Followers</div>
+  <!-- list -->
+  <div class="followerlistlist">
+    <!-- user -->
+    {% for y in user.followed.all %}
+    <div class="userfollower">
+      {% if y.user.profile_pic %}<img class='userfollowerimg' src="{{y.user.profile_pic.url}}" alt="">{% else %}<img class='userfollowerimg' src="{% static 'default.png'%}" alt="">{% endif %}
+      <a  class='followername' href="{% url 'user_profile_page' username=y.user.username%}">{{y.user.username}}</a>
+    </div>
+    <p class='smallfullname'>{{y.user.full_name}}</p>
+    {% endfor %}
+    <!-- userend -->
+  </div>
+</div>
+<!-- Followingmodal -->
+<div id="bod5"></div>
+<div id="followinglistdiv">
+  <!-- title -->
+    <div class="followinglisttitle">Following</div>
+  <!-- list -->
+  <div class="followinglistlist">
+    <!-- user -->
+    {% for y in user.follow.all %}
+    <div class="userfollowing">
+      {% if y.follow.profile_pic %}<img class='userfollowingimg' src="{{y.follow.profile_pic.url}}" alt="">{% else %}<img class='userfollowingimg' src="{% static 'default.png'%}" alt="">{% endif %}
+      <a  class='followingname' href="{% url 'user_profile_page' username=y.follow.username%}">{{y.follow.username}}</a>
+    </div>
+    <p class='smallingfullname'>{{y.follow.full_name}}</p>
+    {% endfor %}
+    <!-- userend -->
+  </div>
+</div>
+<hr width='900px;'>
+
+<!-- <div class="postsandsaved">
+  <a href="#" class='savedposts'>Posts</a>
+  <a href="#" class='postedposts'>Saved</a>
+</div> -->
+
+<div class="post_picture">
+  {% for x in user.p.all%}
+  <a href="{% url 'detail_post_page' pk=x.pk%}"><img class='post_picture_item' src="{{x.post.url}}" alt=""></a>
+  {% endfor %}
+</div>
+<!-- {% if user == request.user or is_follow == True %} -->
+<!-- {% endif %} -->
+
+{% endblock %}
+
+</body>
+
+</html>

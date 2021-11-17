@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/postdetail.css'%}">
+
+  </head>
+  <body>
+    <div class="PostDetailDiv">
+      <div class="detail1">
+        <img class='detailpicture' src="{{pot.post.url}}" alt="">
+      </div>
+      <div class="detail2">
+        <div class="detailtitle">
+          {%if pot.user.profile_pic %}<img class='detailsmalldp' src="{{pot.user.profile_pic.url}}" alt="">{% else %}<img class='detailsmalldp' src="{% static 'default.png'%}" alt="">{% endif %}
+          <a href="{% url 'user_profile_page' username=pot.user.username %}" class="titletitle">{{pot.user.username}}</a>
+        </div>
+        <div class="detailcomments">
+          <a href="{% url 'user_profile_page' username=pot.user.username %}" class="titletitle">{{pot.user.username}}</a>{% if pot.caption %}<p class="titlecaption">{{pot.caption}}</p>{% else %}<p class="titlecaption"></p>{% endif %}<br>
+          {% for x in pot.postcomm.all %}
+          <a href="{% url 'user_profile_page' username=x.user.username %}">{% if x.user.profile_pic %}<img class='commentsmoldp' src="{{x.user.profile_pic.url}}" alt="">{%else%}<img class='commentsmoldp' src="{% static 'default.png'%}" alt="">{%endif%}</a>
+          <div class="whateva">
+            <a href="{% url 'user_profile_page' username=x.user.username %}"class='commenter_title'>{{x.user.username}}</a><span class="commenter_text">{{x.text}}</span>
+            <p class='commenttime'>{{x.commented_on}}</p>
+            {% if x.user.username == request.user.username %}
+             <form action="{% url 'comment_undone_page' pk=x.post.pk commentedon=x.commented_on %}" method="post">
+               {% csrf_token %}
+               <button style="position:relative;bottom:50px; float:right;margin-right:50px;background:white;border:1px solid white;" class='fa fa-trash-alt' type="submit" name="button"></button>
+            </form>
+            {% else %}
+            <span></span>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        <div class="detaillikes">
+          {% if not is_like%}
+          <form action="{% url 'like_done_page' pk=pot.pk%}" method="post">
+            {% csrf_token%}
+            <button style="color:black; background:white;border:1px solid white;" class='far fa-heart' type="submit" name="button"></button><span class='likecount'>{{pot.lik.all.count}}</span>
+          </form>
+          {% else %}
+          <form  action="{% url 'unlike_done_page' pk=pot.pk%}" method="post">
+            {% csrf_token%}
+            <button style="color:red;background:white;border:1px solid white;"class='fas fa-heart' type="submit" name="button"></button><span class='likecount'>{{pot.lik.all.count}}</span>
+          </form>
+          {% endif %}
+          <a id='fa' class='far fa-comment'></a><span class='commentcount'>{{pot.postcomm.all.count}}</span>
+          {% if pot.user.username == request.user.username %}<span id='dele'><span class="far fa-trash-alt"></span></span>{% else %}<span> </span>{% endif %}
+          <div class="time">
+            <p style="color:rgb(150,150,150);font-size:10px;position:relative;bottom:10px;margin-left:7px;">{{pot.posted_on}}</p>
+          </div>
+        </div>
+        <div class="detailaddcomments">
+          <span class='far fa-smile'></span>
+          <form  action="{% url 'comment_done_page' pk=pot.pk%}" method="post">
+            {% csrf_token %}
+            <input id='op' class='add_comm' type="text" name="addcomm" value="" placeholder="Add Comments">
+            <input style="visibility:hidden;position:absolute; top:10px; width:1px;"type="submit" name="" value="">
+          </form>
+
+        </div>
+      </div>
+
+
+    </div>
+    <div id="bod3">
+
+    </div>
+    <div class="deletemodal">
+      <p id='del_title'>Are you sure you want to delete this post</p>
+      <!-- form1 -->
+      <form action="{% url 'delete_post_page' pk=pot.pk %}" method="post">
+        {% csrf_token %}
+        <input style="color:red;" class='delbutton' type="submit" name="decision" value="Delete">
+        <input class="canbutton" type="submit" name="decision" value="Cancel">
+    </div>
+
+    <script src="{% static 'javascript/delete.js'%}" charset="utf-8"></script>
+  </body>
+</html>

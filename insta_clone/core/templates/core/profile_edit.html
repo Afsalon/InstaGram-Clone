@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'core/base.html'%}
+{% block body_block %}
+{% load static %}
+  <!-- ///////////////////////// -->
+  <div class="editcontainer">
+    {% if messages%}
+    {% for message in messages %}
+    <p style=" text-align:center; color:red;">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+
+    <form  enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      <div class="left">
+        <img class ='editdp' src="{{user.profile_pic.url}}" alt="">
+        <label id='l1' for="full_name">Name</label>
+        <label id='l2' for="username">Username</label>
+        <label id='l3' for="website">Website</label>
+        <label id='l4' for="bio">Bio</label>
+        <label id='l5' for="email">Email</label>
+        <label id='l6' for="number">Phone Number</label>
+        <label id='l7' for="gender">Gender</label>
+      </div>
+
+      <div class="right">
+        <h3>EpsilonPrimeX</h3>
+        <input id="i1" type="file" name="profile_pic" value="Choose Profile Picture"><br>
+        <input id="i2" type="text" name="full_name" value="{{request.user.full_name}}" placeholder="Name">
+        <p class='descrip'>Help people discover your account by using the name you're known by: either your full name, nickname, or business name.
+          You can only change your name twice within 14 days.</p>
+        <input id="i3" type="text" name="username" value="{{request.user.username}}" placeholder="Username">
+        <p class='descrip'>In most cases, you'll be able to change your username back to original for another 14 days.</p>
+        <input id="i4" type="url" name="website" value="{{request.user.website}}" placeholder="Website"><br>
+        <textarea id="i5" name="bio" placeholder="Bio" rows="4" cols="30">{{request.user.bio}}</textarea>
+        <p class='descrip'>Personal Information
+  Provide your personal information, even if the account is used for a business, a pet or something else. This won't be a part of your public profile.</p>
+        <input  id="i6" type="email" name="email" value="{{request.user.email}}" placeholder="Email"><br>
+        <input  id="i7" type="number" name="phone_number" value="{{request.user.phone_number}}" placeholder="Phone Number"><br>
+        <input id="i8" type="text" name="gender" value="{{request.user.gender}}" placeholder="Gender"><br>
+        <input id="i9" type="submit" name="" value="Submit">
+      </div>
+    </form>
+  </div>
+  <script src="{% static 'javascript/navdrop.js'%}" charset="utf-8"></script>
+{% endblock %}
