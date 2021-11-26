@@ -11,3 +11,4 @@ login required decorator was used, passwords were hashed with argon2 hashing.
 The core app dictated user feed page, profile page, profile edit page, profile search functionality,
 posting and deleting of pictures, liking and disliking of posts, commenting, deletion of comments, follower/following list,
 and following/unfollowing functionalities.
+https://user-images.githubusercontent.com/68525687/143653084-f7023ecb-9ade-42fa-9a6c-0c64d4032d6e.png
