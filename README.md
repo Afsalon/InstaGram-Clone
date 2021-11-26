@@ -40,8 +40,8 @@ Images:
 13.) Change Password
 <img width="1440" alt="change password" src="https://user-images.githubusercontent.com/68525687/143656296-7fa24d3b-5afb-4759-89c8-e70261902f29.png">
 14.) Follow and Unfollow
-<img width="639" alt="unfollow" src="https://user-images.githubusercontent.com/68525687/143656318-fc5ab461-72fc-4582-99b5-c28c92167dae.png">
-<img width="625" alt="follow" src="https://user-images.githubusercontent.com/68525687/143656311-493fc4f5-3621-4f98-a47c-967b47140c6e.png">
+<img width="625" alt="follow" src="https://user-images.githubusercontent.com/68525687/143656488-6fcf833e-4394-482f-8f77-4eead98d263c.png"><br>
+<img width="639" alt="unfollow" src="https://user-images.githubusercontent.com/68525687/143656492-e992fb58-761a-4ca2-a5ef-78068be707d1.png">
 15.)search User
 <img width="1440" alt="search users" src="https://user-images.githubusercontent.com/68525687/143656345-7be6f8ad-e6da-4ee5-9879-76c9a52fe0f9.png">
 16.) Edit Profile
