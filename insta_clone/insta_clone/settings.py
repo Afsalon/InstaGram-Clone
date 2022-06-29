@@ -142,6 +142,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.@gmail.com'
 EMAIL_HOST_USER = 'abhishek.genisis@gmail.com'
-# EMAIL_HOST_PASSWORD = 'igopmkxuzgktlqcy'
+##Password obviously not saved here
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR/'emails'
